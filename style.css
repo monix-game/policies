@@ -1,0 +1,254 @@
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Colours */
+  --bg: #e6f7d0;
+  --dark-bg: #f3ffe3;
+  --primary-1: #c1ff72;
+  --primary-2: #9ee34a;
+  --primary-3: #7cd628;
+  --text: #262626;
+  --text-muted: #171717;
+  --blue-1: #72d4ff;
+  --blue-2: #4ab9e3;
+  --purple-1: #d272ff;
+  --purple-2: #b94ae3;
+  --red-1: #ff5252;
+  --red-2: #ff3838;
+
+  --danger: var(--red-1);
+
+  --graph-fill: rgba(74, 185, 227, 0.12);
+  --graph-grid-stroke: rgba(0, 0, 0, 0.1);
+
+  --border-radius: 5px;
+
+  --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-monospace: 'Fira Code', monospace;
+}
+
+html[data-theme='dark'] {
+  /* Colours */
+  --bg: #1a1a1a;
+  --dark-bg: #121212;
+  --primary-1: #3e008d;
+  --primary-2: #611cb5;
+  --primary-3: #8329d7;
+  --text: #fdfdfd;
+  --text-muted: #f0f0f0;
+  --blue-1: #00718d;
+  --blue-2: #008fb3;
+  --purple-1: #67008d;
+  --purple-2: #8a00bd;
+  --red-1: #ad1700;
+  --red-2: #d61c00;
+
+  --danger: var(--red-2);
+
+  --graph-grid-stroke: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+}
+
+.mono {
+  font-family: var(--font-family-monospace);
+}
+
+a {
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--text-muted);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg);
+  overflow-x: hidden;
+  font-family: var(--font-family);
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+}
+
+.app-header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.theme-toggle {
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 8px 12px;
+  background: var(--primary-1);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-image {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.6em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.logo-dark {
+  display: none;
+}
+
+html[data-theme='dark'] .logo-light {
+  display: none;
+}
+
+html[data-theme='dark'] .logo-dark {
+  display: block;
+}
+
+.app-title {
+  font-size: 2.4em;
+  line-height: 1.1;
+}
+
+.nav {
+  background: var(--dark-bg);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.nav h2 {
+  font-size: 1.1em;
+  margin-bottom: 12px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-link {
+  display: block;
+  padding: 8px 10px;
+  border-radius: var(--border-radius);
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  background: var(--primary-1);
+}
+
+.page {
+  background: var(--dark-bg);
+  border-radius: var(--border-radius);
+  padding: 28px 32px;
+}
+
+.page-header {
+  margin-bottom: 20px;
+}
+
+.page-meta {
+  font-size: 0.9em;
+  color: var(--text-muted);
+}
+
+.markdown {
+  display: grid;
+  gap: 14px;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  margin-top: 18px;
+}
+
+.markdown p {
+  line-height: 1.7;
+}
+
+.markdown ul,
+.markdown ol {
+  padding-left: 20px;
+}
+
+.markdown li {
+  margin: 6px 0;
+}
+
+.markdown blockquote {
+  border-left: 4px solid var(--primary-2);
+  padding-left: 12px;
+  color: var(--text-muted);
+}
+
+.markdown pre {
+  background: var(--bg);
+  border-radius: var(--border-radius);
+  padding: 12px 14px;
+  overflow-x: auto;
+}
+
+.markdown code {
+  font-family: var(--font-family-monospace);
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    position: static;
+  }
+}
+
+h1 {
+  font-size: 2.2em;
+  line-height: 1.1;
+}

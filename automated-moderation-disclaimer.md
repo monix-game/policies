@@ -11,22 +11,22 @@ Automated moderation tracks specific actions that could violate rules or disrupt
 ### 1. Multiple Account Creations
 
 - **What it detects:** Attempts to create multiple accounts from the same IP address in a short time frame, which may indicate efforts to bypass rules or spam the system.
-- **What AutoMod does:** Temporarily blocks the IP address from creating new accounts and notifies moderators for review.
+- **What automated moderation does:** Temporarily blocks the IP address from creating new accounts and notifies moderators for review.
 
 ### 2. Message Spam
 
 - **What it detects:** Excessive message posting in a short period, which can disrupt conversations.
-- **What AutoMod does:** Temporarily mutes the user to stop further spam, with longer mutes possible for newer accounts.
+- **What automated moderation does:** Temporarily mutes the user to stop further spam, with longer mutes possible for newer accounts.
 
 ### 3. Failed Login Attempts
 
 - **What it detects:** Repeated unsuccessful login attempts from the same IP address, potentially signaling an attempt to access someone else’s account.
-- **What AutoMod does:** Temporarily locks the IP address out of the login system to enhance security.
+- **What automated moderation does:** Temporarily locks the IP address out of the login system to enhance security.
 
 ### 5. Suspicious Behavior
 
 - **What it detects:** Activity patterns that suggest rule-breaking or exploitation, such as rapid transactions or other irregular actions.
-- **What AutoMod does:** Halts further actions and alerts moderators for investigation.
+- **What automated moderation does:** Halts further actions and alerts moderators for investigation.
 
 ---
 
@@ -45,7 +45,7 @@ Automated moderation also notifies moderators when it takes significant steps or
 
 ## Why is Automated Moderation Important?
 
-AutoMod contributes to a positive community experience by:
+automated moderation contributes to a positive community experience by:
 
 - **Preventing disruptions:** Stops spam and abuse before they impact others.
 - **Protecting accounts:** Reduces the risk of unauthorized access.

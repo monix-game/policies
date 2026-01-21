@@ -1,7 +1,5 @@
 # Terms of Service for Monix
 
-**Last Updated: January 14, 2026**
-
 Welcome to Monix ("we," "our," or "us"). These Terms of Service ("ToS") govern your use of our platform, including our website (<https://monix.proplayer919.dev>), services, and features such as trading, fishing, chatting, and pet management (collectively, the "Service"). By accessing or using the Service, you agree to be bound by these ToS. If you do not agree, please do not use the Service.
 
 ---

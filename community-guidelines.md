@@ -1,7 +1,5 @@
 # Community Guidelines for Monix
 
-**Last Updated: January 14, 2026**
-
 Welcome to Monix! Our platform is built on the principles of fair trade, and respectful interaction. These Community Guidelines outline the rules and expectations for all users to ensure a positive and safe experience for everyone. By using Monix, you agree to follow these guidelines.
 
 ---

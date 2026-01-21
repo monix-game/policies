@@ -1,7 +1,5 @@
 # Privacy Policy for Monix
 
-**Last Updated: January 14, 2026**
-
 Welcome to Monix ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use our platform, including our website (<https://monix.proplayer919.dev>), services, and features such as trading, chatting, and fishing (collectively, the "Service"). By using the Service, you agree to the terms of this Privacy Policy.
 
 ---

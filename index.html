@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monix Policies</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png">
+</head>
+<body>
+    <div class="app">
+        <header class="app-header">
+            <div>
+                <div class="logo" aria-label="Monix">
+                    <img src="logo.png" alt="Monix" class="logo-image logo-light">
+                    <img src="dark-logo.png" alt="Monix" class="logo-image logo-dark">
+                    <span class="logo-text">Policies</span>
+                </div>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" type="button">Toggle theme</button>
+        </header>
+
+        <aside class="nav">
+            <h2>Policies</h2>
+            <ul class="nav-list">
+                <li><a class="nav-link" href="#community" data-file="community-guidelines.md" data-title="Community Guidelines">Community Guidelines</a></li>
+                <li><a class="nav-link" href="#terms" data-file="terms-of-service.md" data-title="Terms of Service">Terms of Service</a></li>
+                <li><a class="nav-link" href="#privacy" data-file="privacy-policy.md" data-title="Privacy Policy">Privacy Policy</a></li>
+                <li><a class="nav-link" href="#moderation" data-file="automated-moderation-disclaimer.md" data-title="Automated Moderation Disclaimer">Automated Moderation Disclaimer</a></li>
+            </ul>
+        </aside>
+
+        <main class="page">
+            <article class="markdown" id="doc-content"></article>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        const links = Array.from(document.querySelectorAll(".nav-link"));
+        const docContent = document.getElementById("doc-content");
+        const themeToggle = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+
+        function setActive(link) {
+            links.forEach((item) => item.classList.remove("active"));
+            if (link) {
+                link.classList.add("active");
+            }
+        }
+
+        async function loadDocument(link) {
+            if (!link) return;
+            const file = link.dataset.file;
+            setActive(link);
+
+            try {
+                const response = await fetch(file, { cache: "no-store" });
+                if (!response.ok) {
+                    throw new Error(`Unable to load ${file}`);
+                }
+                const markdown = await response.text();
+                docContent.innerHTML = marked.parse(markdown);
+            } catch (error) {
+                docContent.innerHTML = `<p>Sorry, that document could not be loaded.</p>`;
+            }
+        }
+
+        links.forEach((link) => {
+            link.addEventListener("click", (event) => {
+                event.preventDefault();
+                const hash = link.getAttribute("href");
+                if (hash) {
+                    history.replaceState(null, "", hash);
+                }
+                loadDocument(link);
+            });
+        });
+
+        themeToggle.addEventListener("click", () => {
+            const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+            root.dataset.theme = nextTheme;
+            localStorage.setItem("theme", nextTheme);
+        });
+
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            root.dataset.theme = savedTheme;
+        }
+
+        const initialHash = window.location.hash.replace("#", "");
+        const initialLink = links.find((link) => link.getAttribute("href") === `#${initialHash}`) || links[0];
+        loadDocument(initialLink);
+    </script>
+</body>
+</html>
